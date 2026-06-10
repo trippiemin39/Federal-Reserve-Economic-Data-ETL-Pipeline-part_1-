@@ -1,5 +1,5 @@
 # Federal-Reserve-Economic-Data-ETL-Pipeline-part_1-
-An ETL pipeline that extracts economic indicators from the FRED API and loads them into a star-schema data warehouse (implemented in SQLite), to research the relationship between energy prices and inflation. The whole project is built with Python and its libraries only, so the pipeline is easy to read, understand, and run from start to finish with a single command.<img width="801" 
+An ETL pipeline that extracts economic indicators from the FRED API and loads them into a star-schema data warehouse (implemented in SQLite), to research the relationship between energy prices and inflation. The whole project is built with Python and its libraries only, so the pipeline is easy to read, understand, and run from start to finish with a single command. 
 
 Energy prices are rising tremendously, and we use more energy now than ever. With inflation also increasing, I wanted to research the correlation between the two. In part two of this project I will analyze that correlation in depth and extend the pipeline for deeper research into the impact of data centers on energy prices.
 
