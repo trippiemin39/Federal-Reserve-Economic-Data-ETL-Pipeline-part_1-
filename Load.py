@@ -12,7 +12,7 @@ def create_tables(conn):
     cur.execute("""DROP TABLE IF EXISTS dim_indicator;""")
     cur.execute("""DROP TABLE IF EXISTS dim_region;""")
     cur.execute("""DROP TABLE IF EXISTS dim_date;""")
-    cur.execute("""DROP TABLE IF EXISTS facttable;""")
+    cur.execute("""DROP TABLE IF EXISTS facttable_observation;""")
     conn.execute("PRAGMA foreign_keys = ON;")
 
     cur.execute("""CREATE TABLE IF NOT EXISTS dim_indicator(
