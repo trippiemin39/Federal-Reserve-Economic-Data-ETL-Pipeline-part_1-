@@ -6,6 +6,7 @@ Energy prices are rising tremendously, and we use more energy now than ever. Wit
 <img width="2070" height="705" alt="image" src="https://github.com/user-attachments/assets/3a199292-5064-447b-b5f2-c8468f7051f5" />
 
 The architecture of this pipeline extracts the needed data, transforms it, and loads it into a star schema, going from raw API calls to a populated, linked database.
+
 **Extract** — Fetches six economic indicators from the FRED API (CPI, CPI energy, electricity, gas, oil, recession indicator). The API key is kept outside the code for safety. The logic is split into a reusable fetch_series (one series) and fetch_all_series (all series), with error handling so that one failed series does not break the whole pipeline.
 
 **Transform** — Combines the six series into one long-format table, converts text to numbers, handles missing values, parses dates, and resamples the daily gas and oil prices into monthly averages. It builds three dimension tables (indicator, region, date) and attaches the correct ids to the fact table with a merge.
