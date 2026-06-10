@@ -34,9 +34,9 @@ I chose the star-schema model because I wanted it to stay simple — this resear
 
 What I have learned throughout this project is that the first lines of code are easy, but after 40 lines you start to regret what you wrote in the beginning. I learned that decisions and design choices matter before writing code: you have to think about what the final main() is going to look like, about the extensibility of the pipeline, and about whether it should run in one go or be split into separate stages.
 On the technical side I learned to work with an API, clean data with Pandas, resample time series, model data dimensionally (Kimball: facts vs. dimensions, and when something deserves its own dimension versus being a row), and write SQL with foreign keys.
-But the most important lesson was learning to design before coding — splitting code into functions that each do one thing, treating main() as a readable plan, and building part 1 so that part 2 can be added on top without reworking the foundation.
+But the most important lesson was learning to design before coding splitting code into functions that each do one thing, treating main() as a readable plan, and building part 1 so that part 2 can be added on top without reworking the foundation.
 
-Part 1 is functionally complete: a working, reproducible pipeline with a correct star schema, verified with a JOIN test showing plausible economic figures from 1947 to 2026. Part 2 — the deeper correlation analysis, the regional data-center angle, and a dashboard — will be built on top of this foundation.
+Part 1 is functionally complete: a working, reproducible pipeline with a correct star schema, verified with a JOIN test showing plausible economic figures from 1947 to 2026. Part 2 — the deeper correlation analysis, the regional data-center angle, and a dashboard will be built on top of this foundation.
 
 Sources — National series
 **Indicator ==	URL**
