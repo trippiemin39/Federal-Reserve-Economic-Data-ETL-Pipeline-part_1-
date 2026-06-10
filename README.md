@@ -7,19 +7,18 @@ Energy prices are rising tremendously, and we use more energy now than ever. Wit
 
 The architecture of this pipeline extracts the needed data, transforms it, and loads it into a star schema, going from raw API calls to a populated, linked database.
 
-**Extract** — Fetches six economic indicators from the FRED API (CPI, CPI energy, electricity, gas, oil, recession indicator). The API key is kept outside the code for safety. The logic is split into a reusable fetch_series (one series) and fetch_all_series (all series), with error handling so that one failed series does not break the whole pipeline.
+**Extract** - Fetches six economic indicators from the FRED API (CPI, CPI energy, electricity, gas, oil, recession indicator). The API key is kept outside the code for safety. The logic is split into a reusable fetch_series (one series) and fetch_all_series (all series), with error handling so that one failed series does not break the whole pipeline.
 
-**Transform** — Combines the six series into one long-format table, converts text to numbers, handles missing values, parses dates, and resamples the daily gas and oil prices into monthly averages. It builds three dimension tables (indicator, region, date) and attaches the correct ids to the fact table with a merge.
+**Transform** - Combines the six series into one long-format table, converts text to numbers, handles missing values, parses dates, and resamples the daily gas and oil prices into monthly averages. It builds three dimension tables (indicator, region, date) and attaches the correct ids to the fact table with a merge.
 
-**Load** — Creates the tables with hand-written CREATE TABLE statements including primary and foreign keys, and loads the four tables in the correct order (dimensions first, facts last) into SQLite.
+**Load** - Creates the tables with hand-written CREATE TABLE statements including primary and foreign keys, and loads the four tables in the correct order (dimensions first, facts last) into SQLite.
 
 <img width="861" height="657" alt="image" src="https://github.com/user-attachments/assets/786df5b2-eb90-46bb-9e4a-e5240b5d4f8e" />
-
 The data model is a star schema with one fact table and three dimensions.
-	• fact table — the observations (the measured values + foreign keys)
-	• dim_indicator — what is measured (linked)
-	• dim_region — where it is measured (linked)
-	• dim_date — when it is measured
+	fact table - the observations (the measured values + foreign keys)
+	dim_indicator - what is measured (linked)
+	dim_region - where it is measured (linked)
+	dim_date - when it is measured
 I kept the date dimension unconnected for now because I join on the date column directly; adding a date_id link is a planned improvement.
 I chose the star-schema model because I wanted it to stay simple — this research needed efficiency, not complexity.
 
