@@ -35,12 +35,19 @@ But the most important lesson was learning to design before coding splitting cod
 Part 1 is functionally complete: a working, reproducible pipeline with a correct star schema, verified with a JOIN test showing plausible economic figures from 1947 to 2026. Part 2 — the deeper correlation analysis, the regional data-center angle, and a dashboard will be built on top of this foundation.
 
 Sources — National series
+
 **Indicator ==	URL**
-General_CPI 	== fred.stlouisfed.org/series/CPIAUCSL  		
+
+General_CPI 	== fred.stlouisfed.org/series/CPIAUCSL  
+
 CPI_energy ==	fred.stlouisfed.org/series/CPIENGSL 
+
 Electricity_price_per_kWh == fred.stlouisfed.org/series/APU000072610 
+
 Natural_gas_(Henry_Hub_spot) == fred.stlouisfed.org/series/DHHNGSP 
-WTI_crude_oil	==	fred.stlouisfed.org/series/DC01LWTICO 
+
+WTI_crude_oil	==	fred.stlouisfed.org/series/DC01LWTICO
+
 Recession_indicator ==	fred.stlouisfed.org/series/USREC 
 
 Note: gas and oil are fetched as daily series and resampled to monthly averages in the transform step, instead of using FRED's ready-made monthly series. This was a deliberate choice to practice time-series resampling.
