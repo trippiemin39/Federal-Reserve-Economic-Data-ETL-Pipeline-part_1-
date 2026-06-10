@@ -18,8 +18,11 @@ The architecture of this pipeline extracts the needed data, transforms it, and l
 The data model is a star schema with one fact table and three dimensions.
 
 fact table - the observations (the measured values + foreign keys)
+
 dim_indicator - what is measured (linked)
+
 dim_region - where it is measured (linked)
+
 dim_date - when it is measured
 	
 I kept the date dimension unconnected for now because I join on the date column directly; adding a date_id link is a planned improvement.
